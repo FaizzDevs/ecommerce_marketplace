@@ -7,6 +7,7 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { NavbarSidebar } from "./navbar-sidebar"
 import { useState } from "react"
+import { MenuIcon } from "lucide-react"
 
 const poppins = Poppins({
     subsets: ["latin"],
@@ -52,7 +53,7 @@ const navbarItems = [
 
 export const Navbar = () => {
     const pathName = usePathname();
-    const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+    const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
     return (
         <nav className="h-20 flex border-b justify-between font-medium bg-white">
@@ -99,6 +100,16 @@ export const Navbar = () => {
                     <Link href="sign-up">
                         Mulai Jualan
                     </Link>
+                </Button>
+            </div>
+
+            <div className="flex lg:hidden items-center justify-center">
+                <Button
+                    variant="ghost"
+                    className="size-12 border-transparent bg-white"
+                    onClick={() => setIsSidebarOpen(true)}
+                >
+                    <MenuIcon />
                 </Button>
             </div>
         </nav>
